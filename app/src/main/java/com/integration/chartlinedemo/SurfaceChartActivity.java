@@ -41,7 +41,7 @@ public class SurfaceChartActivity extends AppCompatActivity implements IChartUI 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                mPresenter.showChartData();
             }
         });
 
@@ -49,7 +49,7 @@ public class SurfaceChartActivity extends AppCompatActivity implements IChartUI 
 
     private void initData() {
 
-        mPresenter.showChartData();
+
 
     }
 
