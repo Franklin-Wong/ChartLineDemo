@@ -2,6 +2,7 @@ package com.integration.chartlinedemo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -15,7 +16,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements IChartUI {
 
-
     private Presenter mPresenter;
     ChartView cv;
     Button btn;
@@ -28,10 +28,7 @@ public class MainActivity extends AppCompatActivity implements IChartUI {
         setContentView(R.layout.activity_main);
         initView();
         initData();
-
         initEvent();
-
-
 
     }
     //初始化控件
@@ -50,10 +47,10 @@ public class MainActivity extends AppCompatActivity implements IChartUI {
                 startActivity(new Intent(MainActivity.this, SurfaceChartActivity.class));
             }
         });
-
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mPresenter = new Presenter(MainActivity.this);
                 mPresenter.showChartData();
             }
         });
@@ -61,15 +58,14 @@ public class MainActivity extends AppCompatActivity implements IChartUI {
     }
 
     private void initData() {
-        mPresenter = new Presenter(this);
 
     }
 
     @Override
-    public void showChartData(List<ChartDataInfo> dataInfoList) {
-
-        cv.setData(dataInfoList);
-
-
+    public void showChartData(List<ChartDataInfo> data) {
+        for(int i=0;i<data.size();i++){
+            Log.i("ChartData", data.get(i).getDate() +"------"+data.get(i).getNum());
+        }
+        cv.setData(data);
     }
 }
