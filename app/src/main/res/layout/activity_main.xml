@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#343643"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="10dp"
+        android:text="  刷新ChartView数据  "
+        android:textColor="#ffffff"
+        android:textSize="18sp"/>
+    <Button
+        android:id="@+id/btnSurface"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#343643"
+        android:layout_toRightOf="@+id/btn"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="10dp"
+        android:text="   使用SurfaceView展示图表   "
+        android:textColor="#ffffff"
+        android:textSize="18sp"/>
+    <com.integration.chartlinedemo.view.ChartView
+        android:id="@+id/cv"
+        android:layout_below="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"/>
+</RelativeLayout>
